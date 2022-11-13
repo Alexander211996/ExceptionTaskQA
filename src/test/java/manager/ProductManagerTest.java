@@ -48,24 +48,11 @@ manager.add(smartphoneSixth);
         assertArrayEquals(expected, actual);
     }
 
-    @Test
-    void shouldSearchByBookAuthor() {
-        Product[] expected = new Product[]{bookFirst, bookSixth};
-        Product[] actual = manager.searchBy("Кинг");
-        assertArrayEquals(expected, actual);
-    }
 
     @Test
     void shouldSearchByNameForPhone() {
         Product[] expected = new Product[]{smartphoneFirst};
         Product[] actual = manager.searchBy("P50");
-        assertArrayEquals(expected, actual);
-    }
-
-    @Test
-    void shouldSearchByProducerForPhone() {
-        Product[] expected = new Product[]{smartphoneFirst, smartphoneThird};
-        Product[] actual = manager.searchBy("Huawei");
         assertArrayEquals(expected, actual);
     }
 
