@@ -13,8 +13,8 @@ class ProductManagerTest {
     ProductManager manager = new ProductManager();
 
     private final Book bookFirst = new Book(1, "Сияние", 100, "Кинг");
-    private final Book bookSecond = new Book(2, "Война и мир", 1000, "Толстой");
-    private final Book bookThird = new Book(3, "Иллиндан", 350, "Голден");
+    private final Book bookSecond = new Book(2, "Сказки", 1000, "Толстой");
+    private final Book bookThird = new Book(3, "Иллидан", 350, "Голден");
     private final Book bookForth = new Book(4, "Сказки", 3000, "Барто");
     private final Book bookFifth = new Book(5, "Преступление и наказание", 100, "Достоевский");
     private final Book bookSixth = new Book(6, "Война миров", 1000, "Кинг");
@@ -53,6 +53,13 @@ manager.add(smartphoneSixth);
     void shouldSearchByNameForPhone() {
         Product[] expected = new Product[]{smartphoneFirst};
         Product[] actual = manager.searchBy("P50");
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void shouldReturnTwoBooks() {
+        Product[] expected = new Product[]{bookSecond, bookForth};
+        Product[] actual = manager.searchBy("Сказки");
         assertArrayEquals(expected, actual);
     }
 
