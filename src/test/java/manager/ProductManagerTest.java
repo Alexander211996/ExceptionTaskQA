@@ -26,21 +26,21 @@ class ProductManagerTest {
     private final Smartphone smartphoneFifth = new Smartphone(11, "Mi10", 25000, "Xiaomi");
     private final Smartphone smartphoneSixth = new Smartphone(12, "P5300", 15000, "Oppo");
 
-@BeforeEach
-public void setUp() {
-manager.add(bookFirst);
-manager.add(bookSecond);
-manager.add(bookThird);
-manager.add(bookForth);
-manager.add(bookFifth);
-manager.add(bookSixth);
-manager.add(smartphoneFirst);
-manager.add(smartphoneSecond);
-manager.add(smartphoneThird);
-manager.add(smartphoneForth);
-manager.add(smartphoneFifth);
-manager.add(smartphoneSixth);
-}
+    @BeforeEach
+    public void setUp() {
+        manager.add(bookFirst);
+        manager.add(bookSecond);
+        manager.add(bookThird);
+        manager.add(bookForth);
+        manager.add(bookFifth);
+        manager.add(bookSixth);
+        manager.add(smartphoneFirst);
+        manager.add(smartphoneSecond);
+        manager.add(smartphoneThird);
+        manager.add(smartphoneForth);
+        manager.add(smartphoneFifth);
+        manager.add(smartphoneSixth);
+    }
 
     @Test
     void shouldSearchByBookName() {
