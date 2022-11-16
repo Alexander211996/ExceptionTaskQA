@@ -1,6 +1,7 @@
 package manager;
 
 import domain.Book;
+import domain.NotFoundException;
 import domain.Product;
 import domain.Smartphone;
 import org.junit.jupiter.api.BeforeEach;
@@ -68,5 +69,19 @@ manager.add(smartphoneSixth);
         Product[] expected = new Product[]{};
         Product[] actual = manager.searchBy("Самсунг");
         assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldRemoveIfExists() {
+        manager.removeById(1);
+        Product[] actual = manager.getAll();
+        Product[] expected = new Product[]{bookSecond, bookThird, bookForth, bookFifth, bookSixth, smartphoneFirst, smartphoneSecond, smartphoneThird,
+                smartphoneForth, smartphoneFifth, smartphoneSixth};
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldMakeExceptionIfNotExists() {
+        assertThrows(NotFoundException.class, () -> manager.removeById(15));
     }
 }

@@ -1,5 +1,6 @@
 package repository;
 
+import domain.NotFoundException;
 import domain.Product;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,15 +30,28 @@ public class ProductRepository {
 
 
     public void removeById(int id) {
-        int length = products.length - 1;
-        Product[] tmp = new Product[length];
-        int index = 0;
+        if (findById(id) == null) {
+            throw new NotFoundException("Element with id" + id + " not found");
+        } else {
+            int length = products.length - 1;
+            Product[] tmp = new Product[length];
+            int index = 0;
+            for (Product product : products) {
+                if (product.getId() != id) {
+                    tmp[index] = product;
+                    index++;
+                }
+            }
+            products = tmp;
+        }
+    }
+
+    public Product findById(int id) {
         for (Product product : products) {
-            if (product.getId() != id) {
-                tmp[index] = product;
-                index++;
+            if (product.getId() == id) {
+                return product;
             }
         }
-        products = tmp;
+        return null;
     }
 }

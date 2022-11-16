@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="ProductManagerQA" />
         <module name="ProductManager_HW_12" />
+        <module name="ProductManagerQAWithException" />
       </profile>
     </annotationProcessing>
   </component>
